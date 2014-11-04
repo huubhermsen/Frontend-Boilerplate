@@ -1,4 +1,12 @@
 # Frontend boilerplate using Grunt and Bower
+This is a testing and production ready boilerplate for frontend development. It uses an array of different languages and utillities to provide (c)leaner code and faster workflows. The boilerplate uses:
+
+* [Grunt](http://gruntjs.com) for task management
+* [Bower](http://bower.io) for packet management
+* [Sass](http://sass-lang.com/) for CSS compiling
+* [Compass](http://compass-style.org) for extending Sass and creating Sprites
+* [CoffeeScript](http://coffeescript.org/) for javascript compiling
+* [Jade](http://jade-lang.com/) for templating
 
 ## Requirements
 The following components are required for the use of this boilerplate:
@@ -105,11 +113,9 @@ Grunt will create new `test` and `build` folders where it stores the test (uncom
 ### Harder start
 Have some expierence with Grunt and/or Bower? Then it might be desirable to change settings to your comfort.
 
-In the `bower.json` file you can add/remove extra dependencies for Bower.
-
-Likewise in the `package.json` file you can add/remove extra dependencies for the Grunt task runner.
-
-The `Gruntfile.js` contains all business logic of this boilerplate. You can alter the build and asset paths here or change specific component settings. See [gruntjs.com](http://gruntjs.com/) for more information on Grunt settings and the GitHub repositories of the components (see `package.json`) for more info about their inner workings.
+* In the `bower.json` file you can add/remove extra dependencies for Bower.
+* Likewise in the `package.json` file you can add/remove extra dependencies for the Grunt task runner.
+* The `Gruntfile.js` contains all business logic of this boilerplate. You can alter the build and asset paths here or change specific component settings. See [gruntjs.com](http://gruntjs.com/) for more information on Grunt settings and the GitHub repositories of the components (see `package.json`) for more info about their inner workings.
 
 ## The almighty source folder
 
