@@ -7,4 +7,56 @@ block variables
 
 //- Append content block to layout
 append content
-	h1 Example page
+
+	.jumbotron#jumbotronElement
+		.jumbotron__center
+			h1.jumbotron__title Frontend Boilerplate
+		a.jumbotron__readon-achor.chevron-down#triggerJumbotronScroll( href="" ): span Show me more!
+
+	section.content-wrapper
+		h2 Wow, it's great to see you here!
+		p Welcome to the demo page for our frontend boilerplate. In the following pages we give you a little insight in what's inside and some helpfull links to get you up and running.
+		h3 What can you find here?
+		p This frontend boilerplate uses a number of different languages to get you started with your work. Feel free to add or remove languages and frameworks to your liking via the Grunt and Bower settings.
+		p Below is a short list of the current languages and frameworks available on install:
+		ul.language-list
+			li
+				a( href="http://coffeescript.org/" target="_blank" ) Coffeescript
+				br
+				| CoffeeScript is a little language that compiles into JavaScript. Underneath that awkward Java-esque patina, JavaScript has always had a gorgeous heart. CoffeeScript is an attempt to expose the good parts of JavaScript in a simple way.
+			li
+				a( href="http://jade-lang.com/" target="_blank" ) Jade
+				br
+				| Jade is a high performance template engine heavily influenced by Haml and implemented with JavaScript for node.
+			li
+				a( href="http://sass-lang.com/" target="_blank" ) Sass
+				br
+				| Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.
+			li
+				a( href="http://compass-style.org/" target="_blank" ) Compass
+				br
+				| Compass is an open-source CSS Authoring Framework.
+			li
+				a( href="http://susy.oddbird.net/" target="_blank" ) Susy
+				br
+				| Susy is an agnostic set of tools for creating powerful, custom layouts.
+			li
+				a( href="https://github.com/postcss/autoprefixer" target="_blank" ) Autoprefixer
+				br
+				| PostCSS plugin to parse CSS and add vendor prefixes to CSS rules using values from Can I Use.
+			li
+				a( href="http://necolas.github.io/normalize.css/" target="_blank" ) Normalize.css
+				br
+				| A modern, HTML5-ready alternative to CSS resets
+			li
+				a( href="http://jquery.com/" target="_blank" ) jQuery
+				br
+				| jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers.
+			li
+				a( href="http://modernizr.com/" target="_blank" ) Modernizr
+				br
+				| Modernizr is a JavaScript library that detects HTML5 and CSS3 features in the user’s browser.
+			li A bunch off other mixins and plugins to help you create (c)lean code.
+
+
+

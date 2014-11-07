@@ -21,7 +21,7 @@ html.no-js
 		//- Append additional scripts from view
 		block head_script
 		
-		link( href="http://fonts.googleapis.com/css?family=Open+Sans:300,400", rel="stylesheet", type="text/css" )
+		link( href="http://fonts.googleapis.com/css?family=Lato:300,400,700", rel="stylesheet", type="text/css" )
 		link( href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css", rel="stylesheet", type="text/css" )
 		link( href=css_path + "/default.css", rel="stylesheet", type="text/css" )
 		//- Append additional styles from view
@@ -38,6 +38,7 @@ html.no-js
 			script( src=js_path + "/all.js" )
 		else
 			script( src="jquery/dist/jquery.min.js" )
+			script( src=js_path + "/default/landing-demo.js" )
 		
 		//- Append additional scripts from view
 		block footer_script
