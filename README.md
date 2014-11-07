@@ -47,7 +47,7 @@ Yes, this is also that simple! Visit [bower.io](http://bower.io/) for more info,
 Visit [git-scm.com](http://git-scm.com/) and download the latest source release, follow further instructions.
 
 ### Compass
-Install the Compass gem by symply typing the following command in your terminal app:
+Install the Compass gem by simply typing the following command in your terminal app:
 
 ```bash
 gem install compass
@@ -73,14 +73,14 @@ brew install imagemagick
 ```
 
 ### Susy
-Install the Susy gem by symply typing the following command in your terminal app:
+Install the Susy gem by simply typing the following command in your terminal app:
 
 ```bash
 gem install susy
 ```
 
 ### Normalize plugin
-Install the Normalize gem by symply typing the following command in your terminal app:
+Install the Normalize gem by simply typing the following command in your terminal app:
 
 ```bash
 gem install compass-normalize
@@ -106,7 +106,7 @@ Next run the grunt command and watch the magic happen:
 grunt
 ```
 
-Grunt will create new `test` and `build` folders where it stores the test (uncompressed) and production files. Open a browser and navigate to [0.0.0.0:9000](http://0.0.0.0:9000) and check out the website that being live rendered from the test folder.
+Grunt will create new `test` and `build` folders where it stores the test (uncompressed) and production files. Open a browser and navigate to [0.0.0.0:9000](http://0.0.0.0:9000) and check out the website that's being live rendered from the test folder.
 
 > If your project is under version control, it is wise to add atleast the `test` folder to your ignore list.
 
