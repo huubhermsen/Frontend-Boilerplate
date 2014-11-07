@@ -47,11 +47,11 @@ module.exports = function(grunt){
 			},
 			coffee: {
 				files: [path.source + '/coffee/**/*.coffee'],
-				tasks: ['coffee', 'uglify']
+				tasks: ['newer:coffee', 'uglify']
 			},
 			compass: {
 				files: [path.source + '/sass/**/*.scss'],
-				tasks: ['compass', 'autoprefixer', 'cssmin']
+				tasks: ['newer:compass', 'autoprefixer', 'cssmin']
 			},
 			image: {
 				files: [path.source + 'image/**/*.{jpg,jpeg,gif,png,svg,bmp}'],
@@ -59,7 +59,7 @@ module.exports = function(grunt){
 			},
 			jade: {
 				files: [path.source + '/jade/**/*.jade'],
-				tasks: ['jade']
+				tasks: ['newer:jade']
 			},
 			javascript: {
 				files: [path.source + '/javascript/**/*.js'],
