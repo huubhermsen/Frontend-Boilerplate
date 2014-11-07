@@ -83,13 +83,13 @@ module.exports = function(grunt){
 
 		coffee: {
 			options: {
-				base: true
+				bare: true
 			},
 			build: {
 				expand: true,
 				cwd: path.source + '/coffee',
 				src: ['**/*.coffee'],
-				dest: path.test + '/js',
+				dest: path.test + asset.js,
 				ext: '.js'
 			}
 		},
