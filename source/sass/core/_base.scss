@@ -1,0 +1,20 @@
+/*!
+ *  Set all box sizing to border-box,
+ *  plus set global font smoothing
+ */
+html {
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+	-webkit-font-smoothing: inherit;
+	-moz-osx-font-smoothing: inherit;
+}
+
+/*!
+ *  Include responsive sprite mixin to generate sprite classes
+ *  @include responsive-sprite;
+ */
+@include responsive-sprite;

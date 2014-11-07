@@ -1,0 +1,129 @@
+/*!
+ *  Retina sprites
+ *  Version: 0.1.0
+ *  Author: Huub Hermsen
+ */
+@mixin responsive-sprite($image-spacing: 5px, $default-path: "sprites/default/*.png", $retina-path: "sprites/retina/*.png") {
+
+	// Set sprite maps and set spacing
+	$sprites: sprite-map($default-path, $spacing: $image-spacing) !global;
+	$sprites-retina: sprite-map($retina-path, $spacing: $image-spacing * 2) !global;
+	
+	// Empty icon object
+	$icons: () !global;
+
+	// Loop through all images in sprite to attach a class
+	@each $sprite in sprite_names($sprites) {
+		$icons: join($icons, unquote(".#{$sprite}:before"), comma) !global;
+		.#{$sprite}:before {
+			position: absolute;
+			content: "";
+			width: image-width(sprite-file($sprites, $sprite));
+			height: image-height(sprite-file($sprites, $sprite));
+			background-position: sprite-position($sprites, $sprite);
+			left: 0;
+			top: 0;
+		}
+	}
+
+	// Define default background image
+	#{$icons} {
+		background-image: sprite-url($sprites);
+	}
+
+	// Get sprite width and height
+	$sprite-width: image-width(sprite-path($sprites));
+	$sprite-height: image-height(sprite-path($sprites));
+
+	// Define retina background image
+	#{$icons} {
+		@media (-webkit-min-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 3/2), (min-device-pixel-ratio: 2) {
+			background: {
+				image: sprite-url($sprites-retina);
+				size: $sprite-width $sprite-height;
+			}
+		}
+		html.backgroundsize & {
+			background: {
+				image: sprite-url($sprites-retina);
+				size: $sprite-width $sprite-height;
+			}
+		}
+	}
+}
+
+/*!
+ *  Get single sprite image
+ */
+@mixin responsive-icon($name) {
+	background-position: sprite-position($sprites, $name);
+}
+
+/*!
+ *  Clearfix mixin 
+ *  Replaces default Compass clearfix mixin
+ */
+@mixin clearfix {
+	*zoom: 1;
+	&:before, &:after {
+		content: " ";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+/*!
+ *  Add smooth scrolling (with bounce) to element in webkit browsers
+ */
+@mixin smooth-scroll {
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
+	* {
+		transform: translate3d(0,0,0);
+	}
+}
+
+/*!
+ *  Visually hide element
+ */
+@mixin visually-hidden {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+
+/*!
+ *  Add 1px transparent gif to background
+ *  Fixes hit area problems in old IE anchors with transparent backgrounds
+ */
+@mixin transparent-gif {
+	background: {
+		image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7);
+		repeat: repeat;
+	}
+}
+
+/*!
+ *  Set placeholder color for all children of element
+ */
+@mixin placeholder-color($color-value) {
+	::-webkit-input-placeholder {
+		color: $color-value;
+	}
+	:-moz-placeholder {
+		color: $color-value;  
+	}
+	::-moz-placeholder {
+		color: $color-value;  
+	}
+	:-ms-input-placeholder {  
+		color: $color-value;  
+	}
+}

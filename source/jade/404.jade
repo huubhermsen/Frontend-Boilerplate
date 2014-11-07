@@ -1,0 +1,11 @@
+//- Define layout
+extends layout/main
+
+//- Pass variables to layout
+block variables
+	- var title = "404 - Page not found"
+	- var body_class = "error"
+
+//- Append content block to layout
+append content
+	h1= title

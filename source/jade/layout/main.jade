@@ -1,0 +1,44 @@
+//- Load passed variables
+block variables
+
+//- Get page information or set to defaults
+- var charset = "utf-8"
+- var title = title || "Default page title";
+- var description = description || "Default page description";
+- var viewport = viewport || "width=device-width, initial-scale=1";
+
+doctype html
+html.no-js
+	head
+		meta( charset=charset )
+		meta( http-equiv="X-UA-Compatible", content="IE=edge" )
+		title=title
+		meta( name="description", content=description )
+		meta( name="viewport", content=viewport )
+
+
+		script( src=(build === true) ? js_path + "modernizr.min.js" : "modernizr/modernizr.js" )
+		//- Append additional scripts from view
+		block head_script
+		
+		link( href="http://fonts.googleapis.com/css?family=Lato:300,400,700", rel="stylesheet", type="text/css" )
+		link( href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css", rel="stylesheet", type="text/css" )
+		link( href=css_path + "/default.css", rel="stylesheet", type="text/css" )
+		//- Append additional styles from view
+		block head_style
+	
+	body( class=body_class )
+		//- Append content block from view
+		block content
+
+		//- Append scripts at end of body.
+			Use uglified js version in production enviroment
+			and seperate calls in development enviroment.
+		if (build === true)
+			script( src=js_path + "/all.js" )
+		else
+			script( src="jquery/dist/jquery.min.js" )
+			script( src=js_path + "/default/landing-demo.js" )
+		
+		//- Append additional scripts from view
+		block footer_script
