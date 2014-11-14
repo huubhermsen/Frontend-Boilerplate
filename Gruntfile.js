@@ -1,10 +1,10 @@
-/**
- * Invoke strict mode
+/*!
+ *  Invoke strict mode
  */
 "use strict"
 
-/**
- * Setup paths
+/*!
+ *  Setup paths
  */
 var path = {
 	source: 'source',
@@ -19,8 +19,14 @@ var asset = {
 	js: '/asset/js'
 }
 
-/**
- * Setup development server
+/*!
+ *  Add a production url to nicely prepend url to asset paths
+ *  For example: http://www.expample.com (don't add traling slash)
+ */
+var productionUrl = '';
+
+/*!
+ *  Development server configuration
  */
 var server = {
 	port: 9000,
@@ -28,22 +34,32 @@ var server = {
 	base: ['bower', path.test]
 }
 
-/**
- * Setup Grunt tasks
+/*!
+ *  Setup Grunt tasks
  */
 module.exports = function(grunt){
 
-	// Load all dependent npm tasks
+	/*!
+	 *  Load all dependent npm tasks (def|dev|peer)
+	 *  More info: https://github.com/sindresorhus/load-grunt-tasks
+	 */
 	require('load-grunt-tasks')(grunt);
 
-	// Configure Grunt and individual tasks
+	/*!
+	 *  Configure Grunt and individual tasks
+	 *  More info: http://gruntjs.com/configuring-tasks
+	 */
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 
+		/*!
+		 *  Grunt watch configuration sets up the file watchers and corresponding tasks
+		 *  More info: https://github.com/gruntjs/grunt-contrib-watch
+		 */
 		watch: {
 			options: {
 				livereload: server.livereload,
-				spawn: false
+				spawn: true // Set to false to disable child processes. Faster, yet also more prone to failing
 			},
 			coffee: {
 				files: [path.source + '/coffee/**/*.coffee'],
@@ -75,15 +91,23 @@ module.exports = function(grunt){
 			}
 		},
 
+		/*!
+		 *  Establish a test url at http://localhost:{server port}
+		 *  More info: https://github.com/gruntjs/grunt-contrib-connect
+		 */
 		connect: {
 			target: {
 				options: server
 			}
 		},
 
+		/*!
+		 *  Coffeescript settings
+		 *  More info: https://github.com/gruntjs/grunt-contrib-coffee
+		 */
 		coffee: {
 			options: {
-				bare: true
+				bare: true // Set to false to include anominous function wrapper
 			},
 			build: {
 				expand: true,
@@ -94,10 +118,14 @@ module.exports = function(grunt){
 			}
 		},
 
+		/*!
+		 *  Uglifies Javascript files
+		 *  More info: https://github.com/gruntjs/grunt-contrib-uglify
+		 */
 		uglify: {
 			options: {
 				mangle: {
-					except: ['jQuery', 'Modernizr']
+					except: ['jQuery']
 				},
 				compress: {
 					drop_console: true
@@ -118,6 +146,10 @@ module.exports = function(grunt){
 			}
 		},
 
+		/*!
+		 *  Concatenates used bower files to single bower.js in test folder
+		 *  More info: https://github.com/sapegin/grunt-bower-concat
+		 */
 		bower_concat: {
 			all: {
 				dest: path.test + asset.js + '/lib/bower.js',
@@ -129,6 +161,10 @@ module.exports = function(grunt){
 			}
 		},
 
+		/*!
+		 *  Parse sass files to css and create sprites if sprite mixin is enabled
+		 *  More info: https://github.com/gruntjs/grunt-contrib-compass
+		 */
 		compass: {
 			dist: {
 				options: {
@@ -142,6 +178,10 @@ module.exports = function(grunt){
 			}
 		},
 
+		/*!
+		 *  Use autoprefixer to automaticly add/remove vendor prefixes in CSS files
+		 *  More info: https://github.com/nDmitry/grunt-autoprefixer
+		 */
 		autoprefixer: {
 			files: {
 				expand: true,
@@ -151,6 +191,10 @@ module.exports = function(grunt){
 			}
 		},
 
+		/*!
+		 *  Minify rendered and auto-prefixed CSS
+		 *  More info: https://github.com/gruntjs/grunt-contrib-cssmin
+		 */
 		cssmin: {
 			options: {
 				keepSpecialComments: 0
@@ -164,12 +208,15 @@ module.exports = function(grunt){
 			}
 		},
 
+		/*!
+		 *  Compile jade files to HTML
+		 *  More info: https://github.com/gruntjs/grunt-contrib-jade
+		 */
 		jade: {
 			test: {
 				options: {
 					data: {
 						debug: true,
-						livereload: true,
 						port: server.livereload,
 						css_path: asset.css,
 						image_path: asset.image,
@@ -190,9 +237,9 @@ module.exports = function(grunt){
 					data: {
 						debug: false,
 						build: true,
-						css_path: asset.css,
-						image_path: asset.image,
-						js_path: asset.js
+						css_path: productionUrl + asset.css,
+						image_path: productionUrl + asset.image,
+						js_path: productionUrl + asset.js
 					},
 					pretty: true
 				},
@@ -206,10 +253,18 @@ module.exports = function(grunt){
 			}
 		},
 
+		/*!
+		 *  Remove test folder on grunt:init
+		 *  More info: https://github.com/gruntjs/grunt-contrib-clean
+		 */
 		clean: {
 			test: [path.test]
 		},
 
+		/*!
+		 *  Copy static files from source folder to test folder and test folder to build folder
+		 *  More info: https://github.com/gruntjs/grunt-contrib-copy
+		 */
 		copy: {
 			fonts_test: {
 				files: [{
@@ -237,6 +292,10 @@ module.exports = function(grunt){
 			}
 		},
 
+		/*!
+		 *  Renders the retina sized icons from the source folder to usable sizes for the sprite mixin in Compass
+		 *  More info: https://github.com/andismith/grunt-responsive-images
+		 */
 		responsive_images: {
 			icons: {
 				options: {
@@ -254,6 +313,10 @@ module.exports = function(grunt){
 			}
 		},
 
+		/*!
+		 *  Optimizes all images in build folder
+		 *  More info: https://github.com/gruntjs/grunt-contrib-imagemin
+		 */
 		imagemin: {
 			production: {
 				files: [{
@@ -266,10 +329,14 @@ module.exports = function(grunt){
 		}
 	});
 
+	/*!
+	 *  Register grunt tasks
+	 *  Default task clears test folder and creates a new test environment
+	 *  More info: http://gruntjs.com/creating-tasks
+	 */
 	grunt.registerTask('test', ['clean:test', 'jade:test', 'responsive_images', 'compass', 'autoprefixer', 'coffee', 'copy:fonts_test', 'copy:images']);
 	grunt.registerTask('build', ['jade:build', 'cssmin', 'bower_concat', 'uglify', 'imagemin', 'copy:fonts_build']);
-	grunt.registerTask('init', ['test']);
-	grunt.registerTask('default', ['init', 'connect', 'watch']);
+	grunt.registerTask('default', ['test', 'connect', 'watch']);
 }
 
 
