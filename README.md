@@ -69,7 +69,7 @@ gem update
 Download and install [GraphicsMagick](http://www.graphicsmagick.org/). In Mac OS X, you can simply use [Homebrew](http://mxcl.github.io/homebrew/) and do:
 
 ```bash
-brew install imagemagick
+brew install graphicsmagick
 ```
 
 ### Susy
