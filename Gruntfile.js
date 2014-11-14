@@ -47,31 +47,31 @@ module.exports = function(grunt){
 			},
 			coffee: {
 				files: [path.source + '/coffee/**/*.coffee'],
-				tasks: ['newer:coffee', 'uglify']
+				tasks: ['newer:coffee']
 			},
 			compass: {
 				files: [path.source + '/sass/**/*.scss'],
-				tasks: ['newer:compass', 'autoprefixer', 'cssmin']
+				tasks: ['newer:compass', 'autoprefixer']
 			},
 			image: {
 				files: [path.source + 'image/**/*.{jpg,jpeg,gif,png,svg,bmp}'],
-				tasks: ['copy:images', 'imagemin']
+				tasks: ['copy:images']
 			},
 			jade: {
 				files: [path.source + '/jade/**/*.jade'],
-				tasks: ['newer:jade']
+				tasks: ['newer:jade:test']
 			},
 			javascript: {
 				files: [path.source + '/javascript/**/*.js'],
-				tasks: ['copy:javascript', 'uglify']
+				tasks: ['copy:javascript']
 			},
 			font: {
 				files: [path.source + '/font/**/*.{ttf,otf,svg,woff,eot}'],
-				tasks: ['copy:fonts']
+				tasks: ['copy:fonts_test']
 			},
 			sprites: {
 				files: [path.source + 'sprite/**/*.{jpg,jpeg,gif,png}'],
-				tasks: ['responsive_images', 'compass', 'imagemin']
+				tasks: ['responsive_images', 'compass']
 			}
 		},
 
@@ -211,13 +211,16 @@ module.exports = function(grunt){
 		},
 
 		copy: {
-			fonts: {
+			fonts_test: {
 				files: [{
 					expand: true,
 					cwd: path.source + '/font',
 					src: ['**'],
 					dest: path.test + asset.font
-				},{
+				}]
+			},
+			fonts_build: {
+				files: [{
 					expand: true,
 					cwd: path.source + '/font',
 					src: ['**'],
@@ -263,9 +266,9 @@ module.exports = function(grunt){
 		}
 	});
 
-	grunt.registerTask('test', ['clean:test', 'jade:test', 'responsive_images', 'compass', 'autoprefixer', 'coffee', 'copy:fonts', 'copy:images']);
-	grunt.registerTask('production', ['jade:build', 'cssmin', 'bower_concat', 'uglify', 'imagemin']);
-	grunt.registerTask('init', ['test', 'production']);
+	grunt.registerTask('test', ['clean:test', 'jade:test', 'responsive_images', 'compass', 'autoprefixer', 'coffee', 'copy:fonts_test', 'copy:images']);
+	grunt.registerTask('build', ['jade:build', 'cssmin', 'bower_concat', 'uglify', 'imagemin', 'copy:fonts_build']);
+	grunt.registerTask('init', ['test']);
 	grunt.registerTask('default', ['init', 'connect', 'watch']);
 }
 
