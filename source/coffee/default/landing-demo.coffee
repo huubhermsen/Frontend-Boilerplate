@@ -9,7 +9,8 @@
 
 		triggerJumbotronScroll.on 'click', (event)->
 			event.preventDefault()
-			$body.animate { scrollTop: jumbotron.height() }, 500
+			$ 'html, body'
+                .animate { scrollTop: jumbotron.height() + 'px' }, 500
 			return
 
 		return
