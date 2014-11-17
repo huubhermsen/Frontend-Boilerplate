@@ -69,7 +69,7 @@ gem update
 Download and install [GraphicsMagick](http://www.graphicsmagick.org/). In Mac OS X, you can simply use [Homebrew](http://mxcl.github.io/homebrew/) and do:
 
 ```bash
-brew install imagemagick
+brew install graphicsmagick
 ```
 
 ### Susy
@@ -97,7 +97,7 @@ npm install --save-dev
 bower install
 ```
 
-This will start downloading the required files, components, libraries, etc, to your project. 
+This will start downloading the required files, components, libraries, etc, to your project.
 > Node and Bower place their components in two folders: `bower` and `node_modules`. If you use version control on your project it is wise to exclude these dirs from your commits, these can get quite weighty, whilst not contributing anything to your production enviroment.
 
 Next run the grunt command and watch the magic happen:
