@@ -6,9 +6,9 @@
  */
 
 html, body {
-	width: 100%;
-	height: 100%;
-	position: relative;
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
 
 /*! ---------- Module ----------
@@ -16,71 +16,71 @@ html, body {
  */
 
 .jumbotron {
-	position: relative;
-	height: 100%;
-	overflow: hidden;
-	background-color: tint(black, 10%);
-	min-width: 1024px;
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    background-color: tint(black, 10%);
+    min-width: 1024px;
 }
 
 .jumbotron__center {
-	position: absolute;
-	left: 50%;
-	top: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
 }
 
 $jumbotron__title-width: 960px;
 $jumbotron__title-fontSize: 64px;
 
 .jumbotron__title {
-	position: absolute;
-	width: $jumbotron__title-width;
-	left: -($jumbotron__title-width / 2);
-	top: -(($jumbotron__title-fontSize * 1.1) / 2);
-	font: {
-		size: $jumbotron__title-fontSize;
-		family: Slabo;
-	}
-	line-height: $jumbotron__title-fontSize * 1.1;
-	letter-spacing: 2px;
-	text-align: center;
-	margin: 0;
-	color: white;
+    position: absolute;
+    width: $jumbotron__title-width;
+    left: -($jumbotron__title-width / 2);
+    top: -(($jumbotron__title-fontSize * 1.1) / 2);
+    font: {
+        size: $jumbotron__title-fontSize;
+        family: Slabo;
+    }
+    line-height: $jumbotron__title-fontSize * 1.1;
+    letter-spacing: 2px;
+    text-align: center;
+    margin: 0;
+    color: white;
 }
 
 .jumbotron__readon-achor {
-	position: absolute;
-	left: 50%;
-	bottom: 30px;
-	height: 48px;
-	text-decoration: none;
-	// Elements
-	span {
-		display: inline-block;
-		line-height: 48px;
-		padding-left: 24px;
-		opacity: 0;
-		transition: all 0.5s;
-		color: tint(black, 80%);
-		transform: translateX(20px);
-		font: {
-			size: 18px;
-			weight: 100;
-			family: Slabo;
-		}
-	}
-	&:before {
-		left: -24px;
-		transition: transform 0.5s;
-	}
-	// States
-	&:hover span {
-		opacity: 1;
-		transform: translateX(0);
-	}
-	&:hover:before {
-		transform: rotate(-90deg);
-	}
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    height: 48px;
+    text-decoration: none;
+    // Elements
+    span {
+        display: inline-block;
+        line-height: 48px;
+        padding-left: 24px;
+        opacity: 0;
+        transition: all 0.5s;
+        color: tint(black, 80%);
+        transform: translateX(20px);
+        font: {
+            size: 18px;
+            weight: 100;
+            family: Slabo;
+        }
+    }
+    &:before {
+        left: -24px;
+        transition: transform 0.5s;
+    }
+    // States
+    &:hover span {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    &:hover:before {
+        transform: rotate(-90deg);
+    }
 }
 
 /*! ---------- Module ----------
@@ -88,45 +88,45 @@ $jumbotron__title-fontSize: 64px;
  */
 
 .content-wrapper {
-	position: relative;
-	width: 800px;
-	margin: 30px auto;
-	padding: 30px 50px;
-	background-color: white;
-	h2, h3 {
-		font: {
-			family: Lato;
-			weight: 400;
-		}
-	}
+    position: relative;
+    width: 800px;
+    margin: 30px auto;
+    padding: 30px 50px;
+    background-color: white;
+    h2, h3 {
+        font: {
+            family: Lato;
+            weight: 400;
+        }
+    }
 }
 
 .language-list {
-	list-style-type: none;
-	padding: 0;
-	border: 1px solid tint(black, 90%);
-	border-radius: 10px;
-	li {
-		border-top: 1px solid tint(black, 90%);
-		line-height: 20px;
-		padding: 15px 20px;
-		font-size: 14px;
-		&:first-child {
-			border-top: none;
-		}
-		&:nth-child(even) {
-			background-color: tint(black, 97%);
-		}
-		a {
-			font: {
-				family: Lato;
-				weight: 400;
-				size: 20px;
-			}
-			color: black;
-			text-decoration: none;
-			display: inline-block;
-			margin-bottom: 5px;
-		}
-	}
+    list-style-type: none;
+    padding: 0;
+    border: 1px solid tint(black, 90%);
+    border-radius: 10px;
+    li {
+        border-top: 1px solid tint(black, 90%);
+        line-height: 20px;
+        padding: 15px 20px;
+        font-size: 14px;
+        &:first-child {
+            border-top: none;
+        }
+        &:nth-child(even) {
+            background-color: tint(black, 97%);
+        }
+        a {
+            font: {
+                family: Lato;
+                weight: 400;
+                size: 20px;
+            }
+            color: black;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+    }
 }

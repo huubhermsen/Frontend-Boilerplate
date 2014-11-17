@@ -3,14 +3,14 @@
  *  plus set global font smoothing
  */
 html {
-	box-sizing: border-box;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 *, *:before, *:after {
-	box-sizing: inherit;
-	-webkit-font-smoothing: inherit;
-	-moz-osx-font-smoothing: inherit;
+    box-sizing: inherit;
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
 }
 
 /*!
