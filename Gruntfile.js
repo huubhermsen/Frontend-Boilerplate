@@ -63,11 +63,11 @@ module.exports = function(grunt){
 			},
 			coffee: {
 				files: [path.source + '/coffee/**/*.coffee'],
-				tasks: ['newer:coffee']
+				tasks: ['coffee']
 			},
 			compass: {
 				files: [path.source + '/sass/**/*.scss'],
-				tasks: ['newer:compass', 'autoprefixer']
+				tasks: ['compass', 'autoprefixer']
 			},
 			image: {
 				files: [path.source + 'image/**/*.{jpg,jpeg,gif,png,svg,bmp}'],
@@ -75,7 +75,7 @@ module.exports = function(grunt){
 			},
 			jade: {
 				files: [path.source + '/jade/**/*.jade'],
-				tasks: ['newer:jade:test']
+				tasks: ['jade:test']
 			},
 			javascript: {
 				files: [path.source + '/javascript/**/*.js'],
@@ -142,7 +142,7 @@ module.exports = function(grunt){
 				},{
 					src: [path.test + asset.js + '/ext/modernizr.js'],
 					dest: path.build + asset.js + '/modernizr.min.js'
-				}]				
+				}]
 			}
 		},
 
