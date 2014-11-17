@@ -1,3 +1,5 @@
+[![stable](http://badges.github.io/stability-badges/dist/stable.svg)](http://github.com/badges/stability-badges)
+
 # Frontend boilerplate using Grunt and Bower
 This is a testing and production ready boilerplate for frontend development. It uses an array of different languages and utillities to provide (c)leaner code and faster workflows. The boilerplate uses:
 
