@@ -1,7 +1,9 @@
-((window, $)->
+((window, $, Modernizr)->
 
     $window = $ window
     $body = $ 'body'
+
+    console.log Modernizr.testProp('vh-unit')
 
     triggerJumbotronScroll = $ '#triggerJumbotronScroll'
     if triggerJumbotronScroll.length
@@ -15,4 +17,4 @@
 
         return
 
-)(window, jQuery)
+)(window, jQuery, Modernizr)
