@@ -348,10 +348,3 @@ module.exports = function(grunt){
     grunt.registerTask('build', ['test', 'clean:build', 'jade:build', 'cssmin', 'bower_concat', 'uglify', 'imagemin', 'copy:fonts_build']);
     grunt.registerTask('default', ['test', 'connect', 'watch']);
 }
-
-
-
-
-
-
-
