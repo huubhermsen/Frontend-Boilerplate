@@ -1,9 +1,7 @@
-((window, $, Modernizr)->
+((window, $, Modernizr, TweenLite)->
 
     $window = $ window
     $body = $ 'body'
-
-    console.log Modernizr.testProp('vh-unit')
 
     triggerJumbotronScroll = $ '#triggerJumbotronScroll'
     if triggerJumbotronScroll.length
@@ -11,10 +9,9 @@
 
         triggerJumbotronScroll.on 'click', (event)->
             event.preventDefault()
-            $ 'html, body'
-                .animate { scrollTop: jumbotron.height() + 'px' }, 500
+            TweenLite.to $window, 1.5, { scrollTo: { y: jumbotron.height(), x: 0 }, ease: Bounce.easeOut }
             return
 
         return
 
-)(window, jQuery, Modernizr)
+)(window, jQuery, Modernizr, TweenLite)
