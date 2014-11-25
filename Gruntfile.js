@@ -148,12 +148,20 @@ module.exports = function(grunt){
 
         /*!
          *  Concatenates used bower files to single bower.js in test folder
+         *  Greensock includes are defined in mainFiles object
          *  More info: https://github.com/sapegin/grunt-bower-concat
          */
         bower_concat: {
             all: {
                 dest: path.test + asset.js + '/lib/bower.js',
-                exclude: ['modernizr']
+                exclude: ['modernizr'],
+                mainFiles: {
+                    'greensock': [
+                        'src/uncompressed/TweenLite.js',
+                        'src/uncompressed/plugins/ScrollToPlugin.js',
+                        'src/uncompressed/easing/EasePack.js'
+                    ]
+                }
             },
             modernizr: {
                 dest: path.test + asset.js + '/ext/modernizr.js',
@@ -258,7 +266,8 @@ module.exports = function(grunt){
          *  More info: https://github.com/gruntjs/grunt-contrib-clean
          */
         clean: {
-            test: [path.test]
+            test: [path.test],
+            build: [path.build]
         },
 
         /*!
@@ -332,10 +341,11 @@ module.exports = function(grunt){
     /*!
      *  Register grunt tasks
      *  Default task clears test folder and creates a new test environment
+     *  Build tasks clears build folder, runs test task, concatenates used bower files and minifies JS and CSS
      *  More info: http://gruntjs.com/creating-tasks
      */
     grunt.registerTask('test', ['clean:test', 'jade:test', 'responsive_images', 'compass', 'autoprefixer', 'coffee', 'copy:fonts_test', 'copy:images']);
-    grunt.registerTask('build', ['jade:build', 'cssmin', 'bower_concat', 'uglify', 'imagemin', 'copy:fonts_build']);
+    grunt.registerTask('build', ['test', 'clean:build', 'jade:build', 'cssmin', 'bower_concat', 'uglify', 'imagemin', 'copy:fonts_build']);
     grunt.registerTask('default', ['test', 'connect', 'watch']);
 }
 
