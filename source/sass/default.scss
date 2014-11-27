@@ -4,7 +4,7 @@
 @import "compass";
 
 /*!
- *  Use a normalize (preferred) or reset
+ *  Use a normalize (preferred) or reset css
  *  @import "normalize" or @import "compass/reset"
  */
 @import "normalize";
@@ -32,3 +32,5 @@
  *  Import module styling
  */
 @import "error/module";
+
+$test: 1px;
