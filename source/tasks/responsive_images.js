@@ -2,8 +2,9 @@ module.exports = {
     icons: {
         options: {
             sizes: [
-                { width: '50%', name: 'default' },
-                { width: '100%', name: 'retina' }
+                { width: '33.3333334%', name: 'standard' },
+                { width: '66.6666667%', name: '2x' },
+                { width: '100%', name: '3x' }
             ]
         },
         files: [{
