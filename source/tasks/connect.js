@@ -3,7 +3,7 @@ module.exports = {
         options: {
             port: '<%= config.server.port %>',
             livereload: '<%= config.server.livereload %>',
-            base: ['source/bower', '<%= config.path.test %>']
+            base: ['<%= config.path.source %>/bower', '<%= config.path.test %>']
         }
     }
 }
