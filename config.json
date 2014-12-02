@@ -2,7 +2,7 @@
     "path": {
         "source": "source",
         "test": "test",
-        "build": "build"
+        "build": "dist"
     },
     "asset": {
         "css": "asset/css",

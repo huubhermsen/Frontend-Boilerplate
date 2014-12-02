@@ -30,6 +30,7 @@
     "grunt-responsive-images": "^0.1.4",
     "load-grunt-tasks": "^1.0.0",
     "glob": "~4.2.1",
-    "grunt-eslint": "~2.1.0"
+    "grunt-eslint": "~2.1.0",
+    "grunt-prompt": "~1.3.0"
   }
 }
