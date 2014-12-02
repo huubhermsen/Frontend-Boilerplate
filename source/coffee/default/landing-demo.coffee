@@ -1,17 +1,19 @@
-((window, $, Modernizr, TweenLite)->
+###global window jQuery TweenLite Bounce###
+((window, $, TweenLite, Bounce)->
+
+    "use strict"
 
     $window = $ window
-    $body = $ 'body'
 
-    triggerJumbotronScroll = $ '#triggerJumbotronScroll'
+    triggerJumbotronScroll = $ "#triggerJumbotronScroll"
     if triggerJumbotronScroll.length
-        jumbotron = $ '#jumbotronElement'
+        jumbotron = $ "#jumbotronElement"
 
-        triggerJumbotronScroll.on 'click', (event)->
+        triggerJumbotronScroll.on "click", (event)->
             event.preventDefault()
             TweenLite.to $window, 1.5, { scrollTo: { y: jumbotron.height(), x: 0 }, ease: Bounce.easeOut }
             return
 
         return
 
-)(window, jQuery, Modernizr, TweenLite)
+)(window, jQuery, TweenLite, Bounce)
