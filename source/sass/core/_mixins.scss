@@ -37,11 +37,11 @@
 
     // Define retina background image
     #{$icons} {
-        @media screen and (-webkit-min-device-pixel-ratio: 2),
-        screen and (min--moz-device-pixel-ratio: 2),
-        screen and (-o-min-device-pixel-ratio: 2/1),
-        screen and (min-device-pixel-ratio: 2),
-        screen and (min-resolution: 2dppx) {
+        @media screen and (-webkit-min-device-pixel-ratio: 1),
+        screen and (min--moz-device-pixel-ratio: 1),
+        screen and (-o-min-device-pixel-ratio: 1/1),
+        screen and (min-device-pixel-ratio: 1),
+        screen and (min-resolution: 1dppx) {
             background-image: sprite-url($sprites-retina);
         }
 
@@ -50,10 +50,6 @@
         screen and (-o-min-device-pixel-ratio: 3/1),
         screen and (min-device-pixel-ratio: 3),
         screen and (min-resolution: 3dppx) {
-            background-image: sprite-url($sprites-retina);
-        }
-
-        html.backgroundsize & {
             background-image: sprite-url($sprites-retina3x);
         }
     }
