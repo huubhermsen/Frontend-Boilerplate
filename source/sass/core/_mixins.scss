@@ -3,11 +3,12 @@
  *  Version: 0.1.0
  *  Author: Huub Hermsen
  */
-@mixin responsive-sprite($image-spacing: 5px, $default-path: "sprites/default/*.png", $retina-path: "sprites/retina/*.png") {
+@mixin responsive-sprite($image-spacing: 5px, $default-path: "sprites/standard/*.png", $retina-path: "sprites/2x/*.png", $retina3x-path: "sprites/3x/*.png") {
 
     // Set sprite maps and set spacing
     $sprites: sprite-map($default-path, $spacing: $image-spacing) !global;
     $sprites-retina: sprite-map($retina-path, $spacing: $image-spacing * 2) !global;
+    $sprites-retina3x: sprite-map($retina3x-path, $spacing: $image-spacing * 3) !global;
 
     // Empty icon object
     $icons: () !global;
@@ -28,26 +29,28 @@
 
     // Define default background image
     #{$icons} {
-        background-image: sprite-url($sprites);
+        background: {
+            image: sprite-url($sprites);
+            size: image-width(sprite-path($sprites)) image-height(sprite-path($sprites));
+        }
     }
-
-    // Get sprite width and height
-    $sprite-width: image-width(sprite-path($sprites));
-    $sprite-height: image-height(sprite-path($sprites));
 
     // Define retina background image
     #{$icons} {
-        @media (-webkit-min-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 3/2), (min-device-pixel-ratio: 2) {
-            background: {
-                image: sprite-url($sprites-retina);
-                size: $sprite-width $sprite-height;
-            }
+        @media screen and (-webkit-min-device-pixel-ratio: 1),
+        screen and (min--moz-device-pixel-ratio: 1),
+        screen and (-o-min-device-pixel-ratio: 1/1),
+        screen and (min-device-pixel-ratio: 1),
+        screen and (min-resolution: 1dppx) {
+            background-image: sprite-url($sprites-retina);
         }
-        html.backgroundsize & {
-            background: {
-                image: sprite-url($sprites-retina);
-                size: $sprite-width $sprite-height;
-            }
+
+        @media screen and (-webkit-min-device-pixel-ratio: 3),
+        screen and (min--moz-device-pixel-ratio: 3),
+        screen and (-o-min-device-pixel-ratio: 3/1),
+        screen and (min-device-pixel-ratio: 3),
+        screen and (min-resolution: 3dppx) {
+            background-image: sprite-url($sprites-retina3x);
         }
     }
 }

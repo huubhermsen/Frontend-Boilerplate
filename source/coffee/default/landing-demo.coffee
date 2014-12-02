@@ -1,18 +1,19 @@
-((window, $)->
+###global window jQuery TweenLite Bounce###
+((window, $, TweenLite, Bounce)->
+
+    "use strict"
 
     $window = $ window
-    $body = $ 'body'
 
-    triggerJumbotronScroll = $ '#triggerJumbotronScroll'
+    triggerJumbotronScroll = $ "#triggerJumbotronScroll"
     if triggerJumbotronScroll.length
-        jumbotron = $ '#jumbotronElement'
+        jumbotron = $ "#jumbotronElement"
 
-        triggerJumbotronScroll.on 'click', (event)->
+        triggerJumbotronScroll.on "click", (event)->
             event.preventDefault()
-            $ 'html, body'
-                .animate { scrollTop: jumbotron.height() + 'px' }, 500
+            TweenLite.to $window, 1.5, { scrollTo: { y: jumbotron.height(), x: 0 }, ease: Bounce.easeOut }
             return
 
         return
 
-)(window, jQuery)
+)(window, jQuery, TweenLite, Bounce)

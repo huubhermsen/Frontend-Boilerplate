@@ -1,0 +1,17 @@
+{
+    "path": {
+        "source": "source",
+        "test": "test",
+        "build": "build"
+    },
+    "asset": {
+        "css": "asset/css",
+        "font": "asset/font",
+        "image": "asset/image",
+        "js": "asset/js"
+    },
+    "server": {
+        "port": 9000,
+        "livereload": 9001
+    }
+}
