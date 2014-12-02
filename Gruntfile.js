@@ -8,7 +8,10 @@
  */
 module.exports = function(grunt){
 
-    function loadConfig(path) {
+    /*!
+     *  Load individual Grunt tasks
+     */
+    function loadTasks(path) {
         var glob = require('glob'),
             object = {},
             key;
@@ -33,7 +36,7 @@ module.exports = function(grunt){
     /*!
      *  Extend Grunt config and init configuration
      */
-    grunt.util._.extend(config, loadConfig('./tasks/'));
+    grunt.util._.extend(config, loadTasks('./source/tasks/'));
     grunt.initConfig(config);
 
     /*!
