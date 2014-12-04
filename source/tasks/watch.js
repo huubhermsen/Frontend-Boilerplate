@@ -5,7 +5,7 @@ module.exports = {
     },
     coffee: {
         files: ['<%= config.path.source %>/coffee/**/*.coffee'],
-        tasks: ['coffee', 'eslint']
+        tasks: ['coffee']
     },
     compass: {
         files: ['<%= config.path.source %>/sass/**/*.scss'],
@@ -21,7 +21,7 @@ module.exports = {
     },
     javascript: {
         files: ['<%= config.path.source %>/javascript/**/*.js'],
-        tasks: ['copy:javascript', 'eslint']
+        tasks: ['copy:javascript']
     },
     font: {
         files: ['<%= config.path.source %>/font/**/*.{ttf,otf,svg,woff,eot}'],
