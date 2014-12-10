@@ -1,6 +1,6 @@
 {
   "name": "FrontendBoilerplate",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "A frontend boilerplate using Grunt and Bower",
   "repository": {
     "type": "git",
