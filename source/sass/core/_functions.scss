@@ -1,0 +1,3 @@
+@function tint($color, $amount){
+    @return mix(rgb(255,255,255), $color, $amount);
+}
