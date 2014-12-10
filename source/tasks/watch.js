@@ -7,9 +7,9 @@ module.exports = {
         files: ['<%= config.path.source %>/coffee/**/*.coffee'],
         tasks: ['coffee']
     },
-    compass: {
+    sass: {
         files: ['<%= config.path.source %>/sass/**/*.scss'],
-        tasks: ['compass', 'autoprefixer']
+        tasks: ['sass', 'autoprefixer']
     },
     image: {
         files: ['<%= config.path.source %>/image/**/*.{jpg,jpeg,gif,png,svg,bmp}'],

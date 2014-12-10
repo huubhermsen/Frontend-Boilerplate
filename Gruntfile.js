@@ -52,8 +52,8 @@ module.exports = function(grunt){
      *  Build tasks clears build folder, runs test task, concatenates used bower files and minifies JS and CSS
      *  More info: http://gruntjs.com/creating-tasks
      */
-    grunt.registerTask('test', ['clean:test', 'jade:test', 'responsive_images', 'compass', 'autoprefixer', 'coffee', 'copy:fonts_test', 'copy:images']);
+    grunt.registerTask('test', ['clean:test', 'jade:test', 'responsive_images', 'sass', 'autoprefixer', 'coffee', 'copy:fonts_test', 'copy:images']);
     grunt.registerTask('serve', ['connect', 'watch']);
-    grunt.registerTask('build', ['clean:build', 'jade:build', 'compass', 'autoprefixer', 'cssmin', 'coffee', 'eslint', 'bower_concat', 'uglify', 'copy:images', 'imagemin', 'copy:fonts_build']);
+    grunt.registerTask('build', ['clean:build', 'jade:build', 'sass', 'autoprefixer', 'cssmin', 'coffee', 'eslint', 'bower_concat', 'uglify', 'copy:images', 'imagemin', 'copy:fonts_build']);
     grunt.registerTask('default', ['prompt']);
 }
