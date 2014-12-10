@@ -1,11 +1,5 @@
 /*!
- *  Import Compass plugin
- */
-@import "compass";
-
-/*!
- *  Use a normalize (preferred) or reset css
- *  @import "normalize" or @import "compass/reset"
+ *  @import "normalize"
  */
 @import "normalize";
 
@@ -22,6 +16,7 @@
 /*!
  *  Import core
  */
+@import "core/functions";
 @import "core/variables";
 @import "core/mixins";
 @import "core/base";
@@ -32,5 +27,3 @@
  *  Import module styling
  */
 @import "error/module";
-
-$test: 1px;
