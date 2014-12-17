@@ -78,7 +78,8 @@ Have some expierence with Grunt and/or Bower? Then it might be desirable to chan
 
 * In the `bower.json` file you can add/remove extra dependencies for Bower.
 * Likewise in the `package.json` file you can add/remove extra dependencies for the Grunt task runner.
-* The `Gruntfile.js` contains all business logic of this boilerplate. You can alter the build and asset paths here or change specific component settings. See [gruntjs.com](http://gruntjs.com/) for more information on Grunt settings and the GitHub repositories of the components (see `package.json`) for more info about their inner workings.
+* Each grunt task has it's own config file in `source/tasks/taskname.js`. See [gruntjs.com](http://gruntjs.com/) for more information on Grunt settings and the GitHub repositories of the components (see `package.json`) for more info about their inner workings.
+* You can define what files get concatenated from the bower includes in it's grunt config file, find it in `source/tasks/bower_concat.js`.
 
 ## The almighty source folder
 
