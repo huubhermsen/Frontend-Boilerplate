@@ -57,7 +57,7 @@ Navigate to the root of project and type the following two commands in your term
 
 ```bash
 npm install --save-dev
-bower install
+bower install  --save-dev
 ```
 
 This will start downloading the required files, components, libraries, etc, to your project.
@@ -69,9 +69,7 @@ Next run the grunt command and watch the magic happen:
 grunt
 ```
 
-Grunt will create new `test` and `dist` folders where it stores the test (uncompressed) and production files. Open a browser and navigate to [0.0.0.0:9000](http://0.0.0.0:9000) and check out the website that's being live rendered from the test folder.
-
-> If your project is under version control, it is wise to atleast add the `test` folder to your ignore list.
+> If your project is under version control, it is wise to atleast add the `test` folder to your ignore list. This project already has a good base `.gitignore` file in its root
 
 ### Harder start
 Have some expierence with Grunt and/or Bower? Then it might be desirable to change settings to your comfort.
@@ -79,7 +77,7 @@ Have some expierence with Grunt and/or Bower? Then it might be desirable to chan
 * In the `bower.json` file you can add/remove extra dependencies for Bower.
 * Likewise in the `package.json` file you can add/remove extra dependencies for the Grunt task runner.
 * Each grunt task has it's own config file in `source/tasks/taskname.js`. See [gruntjs.com](http://gruntjs.com/) for more information on Grunt settings and the GitHub repositories of the components (see `package.json`) for more info about their inner workings.
-* You can define what files get concatenated from the bower includes in it's grunt config file, find it in `source/tasks/bower_concat.js`.
+* You can define what files get concatenated from the bower includes in its grunt config file, find it in `source/tasks/bower_concat.js`.
 
 ## The almighty source folder
 
