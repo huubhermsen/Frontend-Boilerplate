@@ -29,6 +29,6 @@ module.exports = {
     },
     sprites: {
         files: ['<%= config.path.source %>/sprite/**/*.{jpg,jpeg,gif,png}'],
-        tasks: ['responsive_images']
+        tasks: ['responsive_images', 'sprite', 'sass']
     }
 }

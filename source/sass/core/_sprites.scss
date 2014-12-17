@@ -9,15 +9,29 @@
     }
 }
 
+@media screen and (-webkit-min-device-pixel-ratio: 1),
+       screen and (min--moz-device-pixel-ratio: 1),
+       screen and (-o-min-device-pixel-ratio: 1/1),
+       screen and (min-device-pixel-ratio: 1),
+       screen and (min-resolution: 1dppx) {
+       .sprite:before {
+           background-image: url(../image/sprites/2x-sprite.png);
+       }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 3),
+       screen and (min--moz-device-pixel-ratio: 3),
+       screen and (-o-min-device-pixel-ratio: 3/1),
+       screen and (min-device-pixel-ratio: 3),
+       screen and (min-resolution: 3dppx) {
+       .sprite:before {
+           background-image: url(../image/sprites/3x-sprite.png);
+       }
+}
+
 .sprite.sprite-chevron-down:before {
     background-position: 0px 0px;
-    background-size: 48 96;
-    width: 48px;
-    height: 48px;
-}
-.sprite.sprite-dames:before {
-    background-position: 0px -48px;
-    background-size: 48 96;
+    background-size: 48px 48px;
     width: 48px;
     height: 48px;
 }
