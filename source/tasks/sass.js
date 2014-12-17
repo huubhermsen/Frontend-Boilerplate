@@ -3,6 +3,10 @@ module.exports = {
         includePaths: ["<%= config.path.source %>/bower/normalize-scss/"]
     },
     dist: {
-        files: { "<%= config.path.test %>/<%= config.asset.css %>/default.css": "<%= config.path.source %>/sass/default.scss" }
+        expand: true,
+        cwd: '<%= config.path.source %>/sass',
+        src: ['*.scss'],
+        dest: '<%= config.path.test %>/<%= config.asset.css %>',
+        ext: '.css'
     }
 }
