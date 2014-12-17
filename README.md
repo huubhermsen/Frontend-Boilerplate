@@ -4,7 +4,6 @@ This is a testing and production ready boilerplate for frontend development. It 
 * [Grunt](http://gruntjs.com) for task management
 * [Bower](http://bower.io) for packet management
 * [Sass](http://sass-lang.com/) for CSS compiling
-* [Susy](http://susy.oddbird.net/) for killer grids in Sass
 * [CoffeeScript](http://coffeescript.org/) for javascript compiling
 * [Jade](http://jade-lang.com/) for templating
 
