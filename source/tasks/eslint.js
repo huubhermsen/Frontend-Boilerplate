@@ -1,3 +1,3 @@
 module.exports = {
-    all: ['<%= config.path.test %>/<%= config.asset.js %>/**/*.js']
+    all: ['<%= config.path.test %>/<%= config.asset.js %>/default/**/*.js']
 }

@@ -30,13 +30,14 @@ module.exports = function(grunt){
      */
     var config = {
         pkg: grunt.file.readJSON('package.json'),
-        config: grunt.file.readJSON('config.json')
+        config: (grunt.file.isFile('source/config/paths.json')) ? grunt.file.readJSON('source/config/paths.json') : {}
     };
 
     /*!
      *  Extend Grunt config and init configuration
      */
     grunt.util._.extend(config, loadTasks('./source/tasks/'));
+    //grunt.config.merge(loadTasks('./source/tasks/'));
     grunt.initConfig(config);
 
     /*!
@@ -51,7 +52,8 @@ module.exports = function(grunt){
      *  Build tasks clears build folder, runs test task, concatenates used bower files and minifies JS and CSS
      *  More info: http://gruntjs.com/creating-tasks
      */
-    grunt.registerTask('test', ['clean:test', 'jade:test', 'responsive_images', 'compass', 'autoprefixer', 'coffee', 'copy:fonts_test', 'copy:images']);
-    grunt.registerTask('build', ['test', 'clean:build', 'jade:build', 'cssmin', 'bower_concat', 'uglify', 'imagemin', 'copy:fonts_build']);
-    grunt.registerTask('default', ['test', 'connect', 'watch']);
+    grunt.registerTask('test', ['clean:test', 'jade:test', 'responsive_images', 'sprite', 'sass', 'autoprefixer', 'coffee', 'copy:fonts_test', 'copy:images']);
+    grunt.registerTask('serve', ['connect', 'watch']);
+    grunt.registerTask('build', ['clean:build', 'jade:build', 'sass', 'autoprefixer', 'cssmin', 'coffee', 'eslint', 'bower_concat', 'uglify', 'copy:images', 'imagemin', 'copy:fonts_build']);
+    grunt.registerTask('default', ['prompt']);
 }

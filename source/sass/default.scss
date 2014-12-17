@@ -1,18 +1,7 @@
 /*!
- *  Import Compass plugin
- */
-@import "compass";
-
-/*!
- *  Use a normalize (preferred) or reset css
- *  @import "normalize" or @import "compass/reset"
+ *  @import "normalize"
  */
 @import "normalize";
-
-/*!
- *  Import Susy for killer grid functionality
- */
-@import "susy";
 
 /*!
  *  Import custom fonts
@@ -22,15 +11,15 @@
 /*!
  *  Import core
  */
+@import "core/functions";
 @import "core/variables";
 @import "core/mixins";
 @import "core/base";
 @import "core/layout";
 @import "core/states";
+@import "core/sprites";
 
 /*!
  *  Import module styling
  */
-@import "error/module";
-
-$test: 1px;
+@import "demo/module";

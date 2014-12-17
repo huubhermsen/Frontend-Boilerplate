@@ -5,11 +5,11 @@ module.exports = {
     },
     coffee: {
         files: ['<%= config.path.source %>/coffee/**/*.coffee'],
-        tasks: ['coffee', 'eslint']
+        tasks: ['coffee']
     },
-    compass: {
+    sass: {
         files: ['<%= config.path.source %>/sass/**/*.scss'],
-        tasks: ['compass', 'autoprefixer']
+        tasks: ['sass', 'autoprefixer']
     },
     image: {
         files: ['<%= config.path.source %>/image/**/*.{jpg,jpeg,gif,png,svg,bmp}'],
@@ -21,7 +21,7 @@ module.exports = {
     },
     javascript: {
         files: ['<%= config.path.source %>/javascript/**/*.js'],
-        tasks: ['copy:javascript', 'eslint']
+        tasks: ['copy:javascript']
     },
     font: {
         files: ['<%= config.path.source %>/font/**/*.{ttf,otf,svg,woff,eot}'],
@@ -29,6 +29,6 @@ module.exports = {
     },
     sprites: {
         files: ['<%= config.path.source %>/sprite/**/*.{jpg,jpeg,gif,png}'],
-        tasks: ['responsive_images', 'compass']
+        tasks: ['responsive_images', 'sprite', 'sass']
     }
 }

@@ -1,0 +1,39 @@
+.sprite:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    background: {
+        image: url({{{options.path}}});
+        repeat: no-repeat;
+    }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 1),
+       screen and (min--moz-device-pixel-ratio: 1),
+       screen and (-o-min-device-pixel-ratio: 1/1),
+       screen and (min-device-pixel-ratio: 1),
+       screen and (min-resolution: 1dppx) {
+       .sprite:before {
+           background-image: url({{{options.retinaPath}}});
+       }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 3),
+       screen and (min--moz-device-pixel-ratio: 3),
+       screen and (-o-min-device-pixel-ratio: 3/1),
+       screen and (min-device-pixel-ratio: 3),
+       screen and (min-resolution: 3dppx) {
+       .sprite:before {
+           background-image: url({{{options.retina3Path}}});
+       }
+}
+
+{{#items}}
+.sprite.sprite-{{name}}:before {
+    background-position: {{px.offset_x}} {{px.offset_y}};
+    background-size: {{total_width}}px {{total_height}}px;
+    width: {{px.width}};
+    height: {{px.height}};
+}
+{{/items}}

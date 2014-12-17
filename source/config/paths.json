@@ -9,9 +9,5 @@
         "font": "asset/font",
         "image": "asset/image",
         "js": "asset/js"
-    },
-    "server": {
-        "port": 9000,
-        "livereload": 9001
     }
 }
