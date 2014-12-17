@@ -1,6 +1,6 @@
 module.exports = {
     options: {
-        includePaths: ["<%= config.path.source %>/bower/normalize-scss/"]
+        includePaths: ["<%= config.path.source %>/bower/susy/sass/", "<%= config.path.source %>/bower/normalize-scss/"]
     },
     dist: {
         expand: true,
