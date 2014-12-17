@@ -1,4 +1,92 @@
 module.exports = {
+    setup: {
+        options: {
+            questions: [{
+                config: 'setuptest',
+                type: 'input',
+                message: 'Please choose a folder name for development',
+                default: 'test',
+                when: function(){
+                    var grunt = require('grunt');
+
+                    if (!grunt.file.isFile('./source/config/paths.json')) return true;
+                    return false;
+                }
+            },{
+                config: 'setupbuild',
+                type: 'input',
+                message: 'Please choose a folder name for production',
+                default: 'dist',
+                when: function(answers){
+                    if (answers.setuptest === undefined) return false;
+                    return true;
+                }
+            },{
+                config: 'assetcss',
+                type: 'input',
+                message: 'Where do you want to store your CSS files?',
+                default: 'asset/css',
+                when: function(answers){
+                    if (answers.setuptest === undefined) return false;
+                    return true;
+                }
+            },{
+                config: 'assetfont',
+                type: 'input',
+                message: 'Where do you want to store your webfonts?',
+                default: 'asset/font',
+                when: function(answers){
+                    if (answers.setuptest === undefined) return false;
+                    return true;
+                }
+            },{
+                config: 'assetimage',
+                type: 'input',
+                message: 'Where do you want to store your images?',
+                default: 'asset/image',
+                when: function(answers){
+                    if (answers.setuptest === undefined) return false;
+                    return true;
+                }
+            },{
+                config: 'assetjs',
+                type: 'input',
+                message: 'Where do you want to store your Javascript files?',
+                default: 'asset/js',
+                when: function(answers){
+                    if (answers.setuptest === undefined) return false;
+                    return true;
+                }
+            }],
+            then: function(results, done){
+                if (results.setuptest !== undefined) {
+                    var grunt = require('grunt'),
+                        fs = require('fs');
+
+                    /** Setup paths */
+                    grunt.config('config.path.source', 'source');
+                    grunt.config('config.path.test', results.setuptest);
+                    grunt.config('config.path.build', results.setupbuild);
+
+                    /** Setup asset paths */
+                    grunt.config('config.asset.css', results.assetcss);
+                    grunt.config('config.asset.font', results.assetfont);
+                    grunt.config('config.asset.image', results.assetimage);
+                    grunt.config('config.asset.js', results.assetjs);
+
+                    var data = grunt.config('config'),
+                        output = "./source/config/paths.json";
+
+                    fs.writeFile(output, JSON.stringify(data, null, 4), function(error){
+                        if (error) grunt.log.writeln("Error: Path file couldn't be written");
+                    });
+                }
+
+                done();
+                return true;
+            }
+        }
+    },
     target: {
         options: {
             questions: [{
@@ -32,26 +120,7 @@ module.exports = {
             }],
             then: function(results, done){
                 var grunt = require('grunt'),
-                    fs = require('fs');
-
-                var output = './test.json';
-                var data = grunt.config('config');
-
-                /*
-                fs.readFile(output, 'utf8', function(error, d){
-                    if (error) grunt.log.writeln(error);
-                    data = JSON.parse(d);
-                    data.path.build = 'dist2';
-                });
-
-
-                fs.writeFile(output, JSON.stringify(data, null, 4), function(error){
-                    if (error) {
-                        grunt.log.writeln('I is having error, esse!');
-                    } else {
-                        grunt.log.writeln('Holy shit, I created something that works?');
-                    }
-                });*/
+                    data = grunt.config('config');
 
                 switch (results.choosetask) {
                     case 'test':
@@ -74,7 +143,6 @@ module.exports = {
                 }
 
                 done();
-
                 return true;
             }
         }
